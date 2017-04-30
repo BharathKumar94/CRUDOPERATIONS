@@ -1,0 +1,86 @@
+
+<div class="col-md-12">
+    <div class="col-md-6 col-md-offset-3">
+         <h4>Insert Customers</h4>
+            <hr/>
+        <form class="form-horizontal" role="form" ng-submit="addcustomerInfo()">
+            <div class="form-group required">
+                <label for="designation" class="col-sm-4 control-label">Email (required)</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" placeholder="Email Address" ng-model="formData.email" required>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="lastname" class="col-sm-4 control-label">First Name (required)</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="lastname" placeholder="First Name" ng-model="formData.customerName" required>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="lName" class="col-sm-4 control-label">Last Name (required)</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="lName" placeholder="Last Name" ng-model="formData.lName" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="number" class="col-sm-4 control-label">Phone Number</label>
+                <div class="col-sm-8">
+                        <input type="number" class="form-control" id="number" placeholder="Phone Number" ng-model="formData.number" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 control-label">Address</label>
+                    <div class="col-sm-8">
+                            <textarea class="form-control" id="address" ng-model="formData.address" >
+                        </textarea>
+                    </div>
+               
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-10 col-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Info</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-9 col-md-offset-2" ng-show="customerDetails.length > 0">
+        <div class="col-md-10 text-right">
+            <dir-pagination-controls on-page-change="pagi.pageChanged(newPageNumber)"></dir-pagination-controls>
+    
+        </div>
+         <table class="col-md-10 emp-detail table ">
+            <thead>
+                <tr>
+                    <td ng-click="pagi.sort('id')">Id <span class="glyphicon sort-icon" ng-show="pagi.sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> </td>
+                    <td ng-click="pagi.sort('name')">First Name <span class="glyphicon sort-icon" ng-show="pagi.sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> </td>
+                    <td ng-click="pagi.sort('lName')">Last Name <span class="glyphicon sort-icon" ng-show="pagi.sortKey=='lName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></td>
+                    <td ng-click="pagi.sort('email')">Email <span class="glyphicon sort-icon" ng-show="pagi.sortKey=='designation'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></td>
+                    <td ng-click="pagi.sort('number')">Phone Number <span class="glyphicon sort-icon" ng-show="pagi.sortKey=='number'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></td>
+                    <td>Address</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="cust in onPageData  | itemsPerPage: pagi.perPage" total-items="pagi.items" >
+                    <td>{{ cust.id }}</td>
+                    <td>{{ cust.name }}</td>
+                    <td>{{ cust.lName }}</td>
+                    <td>{{ cust.email }}</td>
+                    <td>{{ cust.number }}</td>
+                     <td>{{ cust.address }}</td>
+
+                    <td>
+                        <button  class="btn btn-success btn-sm" ng-click="goToEdit(cust.id)">Edit</button>
+                        <button  class="btn btn-danger btn-sm" ng-click="removecustomerInfo(cust.id)" ng-confirm-click="Are you sure you want to delete ?">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+
+    
+    </div>
+        
+
+
+</div>

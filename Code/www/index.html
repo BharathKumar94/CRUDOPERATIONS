@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="liveStream">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Customer Entry Spec</title>
+    <link href="../dist/css/vendor.css" rel="stylesheet">
+    <link href="../dist/css/main.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
+</head>
+
+<body ng-cloak>
+    <div ng-controller="mainCtrl" >
+        
+        <div class="col-md-9 col-md-offset-5"><h2>Customer Entry Spec</h2></div>
+        
+     <div ui-view></div>
+    <footer>
+      
+    </footer>
+
+    </div>
+
+    <script src="../dist/js/built.js"></script>
+    <script src="config/app.js"></script>
+    <script src="config/routes.js"></script>
+    <script src="directives/core_directives.js"></script>
+    <script src="controllers/home_controller.js"></script>
+    <script src="controllers/main_controller.js"></script>
+</body>
+
+</html>
